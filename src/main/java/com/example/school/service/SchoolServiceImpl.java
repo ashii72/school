@@ -35,6 +35,11 @@ public class SchoolServiceImpl implements SchoolService {
     @Override
     public List<Student> getStudentSortedListByNameDesc() {
 
+        studentList.add(s1);
+        studentList.add(s2);
+        studentList.add(s3);
+        studentList.add(s4);
+
         Collections.sort(studentList,Collections.reverseOrder());
         return studentList;
     }
@@ -90,6 +95,11 @@ public class SchoolServiceImpl implements SchoolService {
 
     @Override
     public List<Teacher> getTeacherSortedListByNameDesc() {
+
+        teacherList.add(t1);
+        teacherList.add(t2);
+        teacherList.add(t3);
+        teacherList.add(t4);
 
         Collections.sort(teacherList,Collections.reverseOrder());
         return teacherList;
