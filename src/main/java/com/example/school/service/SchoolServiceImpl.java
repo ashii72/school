@@ -3,6 +3,7 @@ package com.example.school.service;
 import com.example.school.model.Student;
 import com.example.school.model.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -10,8 +11,11 @@ import java.util.*;
 @Service
 public class SchoolServiceImpl implements SchoolService {
 
-    @Autowired
-    private UtilService utilService;
+    private final UtilService utilService;
+
+    public SchoolServiceImpl(@Qualifier("utilServiceImpl2") UtilService utilService) {
+        this.utilService = utilService;
+    }
 
     Student s1 = new Student(1,"Ashkan",20,"Linear Control System");
     Student s2 = new Student(2,"Babak",18,"Electrical Circuit");
@@ -25,6 +29,7 @@ public class SchoolServiceImpl implements SchoolService {
 
     List<Student> studentList = new ArrayList<>(List.of(s1,s2,s3,s4));
     List<Teacher> teacherList = new ArrayList<>(List.of(t1,t2,t3,t4));
+
 
     @Override
     public List<Student> getStudentSortedListByNameAsc() {
@@ -104,6 +109,8 @@ public class SchoolServiceImpl implements SchoolService {
     @Override
     public List<Teacher> addTeacherByTeacherObject(Teacher teacher) {
 
+        String nameUpper = utilService.nameToUpperCase(teacher.getName());
+        teacher.setName(nameUpper);
         teacherList.add(teacher);
         return teacherList;
     }

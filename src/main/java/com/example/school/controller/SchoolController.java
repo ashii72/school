@@ -15,8 +15,12 @@ import java.util.List;
 @RequestMapping("/school")
 public class SchoolController {
 
-    @Autowired
+    final
     SchoolService schoolService;
+
+    public SchoolController(SchoolService schoolService) {
+        this.schoolService = schoolService;
+    }
 
     @GetMapping("/student/sort/asc")
     public List<Student> getStudentSortedListByNameAsc() {
