@@ -5,6 +5,8 @@ import com.example.school.model.Student;
 import com.example.school.model.Teacher;
 import com.example.school.service.SchoolService;
 import com.example.school.service.SchoolServiceImpl;
+import com.example.school.service.UtilServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +15,8 @@ import java.util.List;
 @RequestMapping("/school")
 public class SchoolController {
 
-    SchoolService schoolService = new SchoolServiceImpl();
+    @Autowired
+    SchoolService schoolService;
 
     @GetMapping("/student/sort/asc")
     public List<Student> getStudentSortedListByNameAsc() {

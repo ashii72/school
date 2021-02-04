@@ -2,10 +2,16 @@ package com.example.school.service;
 
 import com.example.school.model.Student;
 import com.example.school.model.Teacher;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Service
 public class SchoolServiceImpl implements SchoolService {
+
+    @Autowired
+    private UtilService utilService;
 
     Student s1 = new Student(1,"Ashkan",20,"Linear Control System");
     Student s2 = new Student(2,"Babak",18,"Electrical Circuit");
