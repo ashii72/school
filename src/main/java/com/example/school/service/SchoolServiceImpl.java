@@ -35,7 +35,7 @@ public class SchoolServiceImpl implements SchoolService {
     @Override
     public List<Student> getStudentSortedListByNameDesc() {
 
-        Collections.sort(studentList,Collections.reverseOrder());
+        studentList.sort(Comparator.comparing(Student::getName).reversed());
         return studentList;
     }
 
@@ -98,14 +98,7 @@ public class SchoolServiceImpl implements SchoolService {
     @Override
     public List<Teacher> addTeacherByTeacherObject(Teacher teacher) {
 
-        int index = -1;
-
-        for (Teacher teacher1: teacherList) {
-            if (teacher1.getCourse().equals(teacher.getCourse())) {
-                index = teacherList.indexOf(teacher1);
-            }
-        }
-        teacherList.add(index,teacher);
+        teacherList.add(teacher);
         return teacherList;
     }
 
