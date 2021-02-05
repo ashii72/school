@@ -54,4 +54,12 @@ class SchoolApplicationTests {
         System.out.println("The longest word is: " + longestWord);
         System.out.println("Maximum length of mentioned word is: " + maxLength);
     }
+
+    @Test
+    void wordAndCharCount() {
+
+        String s1 = "Tonight is a good night and tomorrow night will be an good night!";
+
+        // bishtarin tekar va tedad tekrar --> for word & char
+    }
 }
