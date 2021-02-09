@@ -3,6 +3,10 @@ package com.example.school;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 class SchoolApplicationTests {
 
     @Test
@@ -56,10 +60,64 @@ class SchoolApplicationTests {
     }
 
     @Test
-    void wordAndCharCount() {
+    void wordMaxCount() {
 
-        String s1 = "Tonight is a good night and tomorrow night will be an good night!";
+        String input = "Tonight is a good night and tomorrow night will be an good night";
+
+        String[] sentenceArray = input.split(" ");
+
+        Map<String, Integer> map = new HashMap<>();
+
+        //int counter;
+
+        for(int i=0; i<sentenceArray.length; i++) {
+            map.put(sentenceArray[i],1);
+            for (int j=i+1; j<sentenceArray.length; j++)  {
+                if (sentenceArray[i].equals(sentenceArray[j])) {
+                   Integer counter = map.get(sentenceArray[i]);
+                    System.out.println(counter);
+                    counter++;
+                    System.out.println(counter);
+                    map.merge(sentenceArray[i],1,Integer::sum);
+                }
+                //counter++;
+            }
+        }
+
+//        System.out.println(counter);
+        System.out.println(map);
+
+//        Map<String,String> nameMap = new HashMap<>();
+//
+//        nameMap.put("33347","Ardeshir");
+//        nameMap.put("0016508882","Ashkan");
+//
+//        System.out.println(nameMap.get("33347"));
+
+//        for (String word : sentenceArray) {
+//            map.merge(word, 1, Integer::sum);
+//        }
+//
+//        String key = Collections.max(map.entrySet(), Map.Entry.comparingByValue()).getKey();
+//	    System.out.println("Max Occurrence of Word in the given String is : " + key + " and it is repeated " + map.get(key) + " times.");
 
         // bishtarin tekar va tedad tekrar --> for word & char
+    }
+
+    @Test
+    void charMaxCount() {
+
+        String input = "Tonight is a good night and tomorrow night will be an good night";
+
+        char[] sentenceArray = input.toCharArray();
+
+//        Map<Character, Integer> map = new HashMap<>();
+//        for (Character c : sentenceArray) {
+//            map.merge(c, 1, Integer::sum);
+//        }
+//
+//        Character key = Collections.max(map.entrySet(), Map.Entry.comparingByValue()).getKey();
+//        System.out.println("Max Occurrence of Character in the given String is : " + key + " and it is repeated " + map.get(key) + " times.");
+
     }
 }
