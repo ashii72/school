@@ -70,17 +70,17 @@ class SchoolApplicationTests {
 
         //int counter;
 
-        for(int i=0; i<sentenceArray.length; i++) {
+        for (int i=0;i<sentenceArray.length;i++){
             map.put(sentenceArray[i],1);
+        }
+
+        for(int i=0; i<sentenceArray.length; i++) {
             for (int j=i+1; j<sentenceArray.length; j++)  {
                 if (sentenceArray[i].equals(sentenceArray[j])) {
-                   Integer counter = map.get(sentenceArray[i]);
-                    System.out.println(counter);
+                   Integer counter = map.get(sentenceArray[j]);
                     counter++;
-                    System.out.println(counter);
-                    map.merge(sentenceArray[i],1,Integer::sum);
+                    map.put(sentenceArray[j],counter);
                 }
-                //counter++;
             }
         }
 
