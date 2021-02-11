@@ -78,8 +78,13 @@ class SchoolApplicationTests {
             for (int j=i+1; j<sentenceArray.length; j++)  {
                 if (sentenceArray[i].equals(sentenceArray[j])) {
                    Integer counter = map.get(sentenceArray[j]);
+                    System.out.println(counter+"="+sentenceArray[j]);
+                    if (counter!=null)
                     counter++;
+                    System.out.println(counter);
+                    if (!sentenceArray[j].equals("0"))
                     map.put(sentenceArray[j],counter);
+                    sentenceArray[j]="0";
                 }
             }
         }
