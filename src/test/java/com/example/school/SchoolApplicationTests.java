@@ -106,7 +106,7 @@ class SchoolApplicationTests {
 //        String key = Collections.max(map.entrySet(), Map.Entry.comparingByValue()).getKey();
 //	    System.out.println("Max Occurrence of Word in the given String is : " + key + " and it is repeated " + map.get(key) + " times.");
 
-        // bishtarin tekar va tedad tekrar --> for word & char
+        // bishtarin tekar va tedad tekrar --> for word & char ----- for test git pull
     }
 
     @Test
