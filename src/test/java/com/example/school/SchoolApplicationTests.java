@@ -3,9 +3,7 @@ package com.example.school;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 class SchoolApplicationTests {
 
@@ -124,5 +122,17 @@ class SchoolApplicationTests {
 //        Character key = Collections.max(map.entrySet(), Map.Entry.comparingByValue()).getKey();
 //        System.out.println("Max Occurrence of Character in the given String is : " + key + " and it is repeated " + map.get(key) + " times.");
 
+    }
+
+    @Test
+    void testSet(){
+        Set<Integer> mySet = new HashSet<>();
+        mySet.add(1);
+        mySet.add(2);
+        mySet.add(3);
+        for (int i=0; i<5; i++) {
+            mySet.add(i);
+        }
+        System.out.println(mySet);
     }
 }
