@@ -13,7 +13,7 @@ public class SchoolServiceImpl implements SchoolService {
 
     private final UtilService utilService;
 
-    public SchoolServiceImpl(@Qualifier("utilServiceImpl2") UtilService utilService) {
+    public SchoolServiceImpl(@Qualifier ("utilServiceImpl2")UtilService utilService) {
         this.utilService = utilService;
     }
 

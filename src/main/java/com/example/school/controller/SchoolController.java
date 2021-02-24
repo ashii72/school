@@ -43,8 +43,4 @@ public class SchoolController {
         return schoolService.removeStudentByStudentObject(student);
     }
 
-    /***********************************************************************************/
-
-
-
 }
