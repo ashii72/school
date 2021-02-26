@@ -1,10 +1,16 @@
 package com.example.school.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Table(name = "student")
+@Entity
 public class Student {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
     private int score;
     private String course;
@@ -14,6 +20,10 @@ public class Student {
         this.name = name;
         this.score = score;
         this.course = course;
+    }
+
+    public Student() {
+
     }
 
     @Override

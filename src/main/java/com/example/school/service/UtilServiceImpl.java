@@ -10,4 +10,9 @@ public class UtilServiceImpl implements UtilService {
     public String nameToUpperCase(String name) {
         return name.toUpperCase();
     }
+
+    @Override
+    public String nameToLowerCase(String name) {
+        return name.toLowerCase();
+    }
 }
