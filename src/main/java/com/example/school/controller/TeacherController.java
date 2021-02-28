@@ -35,9 +35,4 @@ public class TeacherController {
     public Optional<Teacher> findTeacherById(@PathVariable("id") Integer id) {
         return teacherService.findTeacherById(id);
     }
-
-    @PostMapping("/save")
-    public Teacher saveTeacher(@RequestBody String name,String course) {
-        return teacherService.saveTeacher(name,course);
-    }
 }
