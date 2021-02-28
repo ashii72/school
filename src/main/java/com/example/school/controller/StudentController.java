@@ -4,6 +4,8 @@ import com.example.school.model.Student;
 import com.example.school.service.StudentService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/student")
 public class StudentController {
@@ -15,13 +17,13 @@ public class StudentController {
     }
 
     @GetMapping("/name")
-    public Student getByName(@RequestParam("name") String name) {
-        return studentService.findStudentByName(name).get();
+    public Optional<Student> getByName(@RequestParam("name") String name) {
+        return studentService.findStudentByName(name);
     }
 
     @GetMapping("/id/{id}")
-    public Student getById(@PathVariable("id") int id) {
-        return studentService.findStudentById(id).get();
+    public Optional<Student> getById(@PathVariable("id") int id) {
+        return studentService.findStudentById(id);
     }
 
     @PostMapping("/save")

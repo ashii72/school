@@ -4,6 +4,8 @@ import com.example.school.model.Teacher;
 import com.example.school.repository.TeacherRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class TeacherServiceImpl implements TeacherService {
 
@@ -14,13 +16,13 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public Teacher findTeacherByName(String name) {
-        return null;
+    public Optional<Teacher> findTeacherByName(String name) {
+        return teacherRepository.findByName(name);
     }
 
     @Override
-    public Teacher findTeacherById(Integer id) {
-        return teacherRepository.findById(id).get();
+    public Optional<Teacher> findTeacherById(int id) {
+        return teacherRepository.findById(id);
     }
 
     @Override

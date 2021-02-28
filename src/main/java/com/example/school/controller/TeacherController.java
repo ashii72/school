@@ -2,10 +2,9 @@ package com.example.school.controller;
 
 import com.example.school.model.Teacher;
 import com.example.school.service.TeacherService;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/teacher")
@@ -33,7 +32,12 @@ public class TeacherController {
     }
 
     @GetMapping("/{id}")
-    public Teacher findTeacherById(@PathVariable("id") Integer id) {
+    public Optional<Teacher> findTeacherById(@PathVariable("id") Integer id) {
         return teacherService.findTeacherById(id);
+    }
+
+    @PostMapping("/save")
+    public Teacher saveTeacher(@RequestBody String name,String course) {
+        return teacherService.saveTeacher(name,course);
     }
 }

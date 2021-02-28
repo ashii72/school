@@ -3,8 +3,8 @@ package com.example.school.model;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Table(name = "student")
 @Entity
+@Table(name = "student")
 public class Student {
 
     @Id
@@ -12,10 +12,10 @@ public class Student {
     private int id;
 
     private String name;
-    private int score;
+    private double score;
     private String course;
 
-    public Student(int id, String name, int score, String course) {
+    public Student(int id, String name, double score, String course) {
         this.id = id;
         this.name = name;
         this.score = score;
@@ -65,11 +65,11 @@ public class Student {
         this.name = name;
     }
 
-    public int getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(double score) {
         this.score = score;
     }
 
