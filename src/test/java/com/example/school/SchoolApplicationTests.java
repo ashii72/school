@@ -1,11 +1,15 @@
 package com.example.school;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 class SchoolApplicationTests {
+
+//    StudentController studentController;
 
     @Test
     void contextLoads() {
@@ -134,5 +138,12 @@ class SchoolApplicationTests {
             mySet.add(i);
         }
         System.out.println(mySet);
+    }
+
+    @Test
+    void myTest() {
+        int i = 0;
+        Integer j = 1;
+        Boolean k = false;
     }
 }
