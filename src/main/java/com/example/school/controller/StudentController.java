@@ -1,5 +1,6 @@
 package com.example.school.controller;
 
+import com.example.school.exception.NotFoundException;
 import com.example.school.model.Student;
 import com.example.school.service.StudentService;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,7 @@ import java.util.Optional;
 @RequestMapping("/student")
 public class StudentController {
 
-    final  StudentService studentService;
+    final StudentService studentService;
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
@@ -22,8 +23,8 @@ public class StudentController {
     }
 
     @GetMapping("/id/{id}")
-    public Optional<Student> getById(@PathVariable("id") int id) {
-        return studentService.findStudentById(id);
+    public Student getById(@PathVariable("id") int id) {
+        return studentService.findStudentById(id).orElseThrow(() -> new NotFoundException("Student not found!"));
     }
 
     @PostMapping("/save")
