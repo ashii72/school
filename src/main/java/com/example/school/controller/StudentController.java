@@ -24,7 +24,7 @@ public class StudentController {
 
     @GetMapping("/id/{id}")
     public Student getById(@PathVariable("id") int id) {
-        return studentService.findStudentById(id).orElseThrow(() -> new NotFoundException("Student not found!"));
+        return studentService.findStudentById(id).orElseThrow(() -> new NotFoundException("Student id " + id + "not found!"));
     }
 
     @PostMapping("/save")
