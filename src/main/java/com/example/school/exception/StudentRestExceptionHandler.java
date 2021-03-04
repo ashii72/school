@@ -17,9 +17,9 @@ public class StudentRestExceptionHandler {
 
         StudentErrorResponse errorResponse = new StudentErrorResponse();
 
-        errorResponse.getStatus(HttpStatus.NOT_FOUND.value());
-        errorResponse.getMessage(exc.getMessage());
-        errorResponse.getTimeStamp(System.currentTimeMillis());
+        errorResponse.setStatus(HttpStatus.NOT_FOUND.value());
+        errorResponse.setMessage(exc.getMessage());
+        errorResponse.setTimeStamp(System.currentTimeMillis());
 
         // return ResponseEntity
 
@@ -35,9 +35,9 @@ public class StudentRestExceptionHandler {
 
         StudentErrorResponse errorResponse = new StudentErrorResponse();
 
-        errorResponse.getStatus(HttpStatus.BAD_REQUEST.value());
-        errorResponse.getMessage(exc.getMessage());
-        errorResponse.getTimeStamp(System.currentTimeMillis());
+        errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
+        errorResponse.setMessage(exc.getMessage());
+        errorResponse.setTimeStamp(System.currentTimeMillis());
 
         // return ResponseEntity
 
