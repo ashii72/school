@@ -4,6 +4,7 @@ import com.example.school.model.Teacher;
 import com.example.school.service.TeacherService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -34,5 +35,15 @@ public class TeacherController {
     @GetMapping("/{id}")
     public Optional<Teacher> findTeacherById(@PathVariable("id") Integer id) {
         return teacherService.findTeacherById(id);
+    }
+
+    @GetMapping("/delete/{id}")
+    public Teacher deleteTeacherById(@PathVariable("id") int id) {
+        return teacherService.deleteTeacherById(id);
+    }
+
+    @GetMapping("/list")
+    public List<Teacher> findAllTeachers() {
+        return teacherService.findAllTeachers();
     }
 }

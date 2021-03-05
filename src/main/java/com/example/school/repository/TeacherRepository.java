@@ -13,4 +13,5 @@ public interface TeacherRepository extends JpaRepository<Teacher,Integer> {
 //    Teacher retrieveByName(@Param("name") String name);
 
     Optional<Teacher> findByName(String name);
+    Teacher deleteById(int id);
 }

@@ -4,6 +4,7 @@ import com.example.school.model.Teacher;
 import com.example.school.repository.TeacherRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,5 +32,15 @@ public class TeacherServiceImpl implements TeacherService {
         teacher.setName(name);
         teacher.setCourse(course);
         return teacherRepository.save(teacher);
+    }
+
+    @Override
+    public Teacher deleteTeacherById(int id) {
+        return teacherRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Teacher> findAllTeachers() {
+        return teacherRepository.findAll();
     }
 }

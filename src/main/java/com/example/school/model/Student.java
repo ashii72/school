@@ -11,12 +11,18 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
+    private Teacher teacher;
+
+
     private String name;
     private double score;
     private String course;
 
-    public Student(int id, String name, double score, String course) {
+    public Student(int id, Teacher teacher, String name, double score, String course) {
         this.id = id;
+        this.teacher = teacher;
         this.name = name;
         this.score = score;
         this.course = course;
@@ -30,6 +36,7 @@ public class Student {
     public String toString() {
         return "Student{" +
                 "id=" + id +
+                ", teacher=" + teacher +
                 ", name='" + name + '\'' +
                 ", score=" + score +
                 ", course='" + course + '\'' +
@@ -41,12 +48,12 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return id == student.id && score == student.score && name.equals(student.name) && course.equals(student.course);
+        return id == student.id && Double.compare(student.score, score) == 0 && Objects.equals(teacher, student.teacher) && Objects.equals(name, student.name) && Objects.equals(course, student.course);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, score, course);
+        return Objects.hash(id, teacher, name, score, course);
     }
 
     public int getId() {
@@ -55,6 +62,14 @@ public class Student {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
     public String getName() {
