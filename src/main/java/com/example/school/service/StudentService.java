@@ -16,4 +16,7 @@ public interface StudentService {
     List<Student> findAllStudentsByOrderByNameDesc();
     List<Student> findAllStudentsByOrderByScoreAsc();
     List<Student> findAllStudentsByOrderByScoreDesc();
+
+    List<Student> findAllStudentsSortByScoreDescAndNameAsc();
+    List<Student> findAllStudentsPageByPageAndSortByScoreDesc(int page,int size);
 }

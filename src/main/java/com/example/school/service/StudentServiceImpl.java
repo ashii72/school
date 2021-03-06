@@ -60,4 +60,18 @@ public class StudentServiceImpl implements StudentService{
     public List<Student> findAllStudentsByOrderByScoreDesc() {
         return studentRepository.findAllByOrderByScoreDesc();
     }
+
+    @Override
+    public List<Student> findAllStudentsSortByScoreDescAndNameAsc() {
+        //Sort.by() jpa in repository
+        return null;
+    }
+
+    @Override
+    public List<Student> findAllStudentsPageByPageAndSortByScoreDesc(int page,int size) {
+        // Pageable --- PageRequest in repository
+        // page and size should be passed by user
+        return null;
+    }
+
 }
