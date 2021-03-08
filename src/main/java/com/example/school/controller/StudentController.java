@@ -62,4 +62,14 @@ public class StudentController {
     public List<Student> findAllStudentsByOrderByScoreDesc() {
         return studentService.findAllStudentsByOrderByScoreDesc();
     }
+
+    @GetMapping("/sort/score")
+    public List<Student> findAllStudentsSortByScoreDescAndNameAsc() {
+        return studentService.findAllStudentsSortByScoreDescAndNameAsc();
+    }
+
+    @GetMapping("/sort/page")
+    public List<Student> findAllStudentsPageByPageAndSortByScoreDesc(@RequestParam ("page") int page, @RequestParam ("size") int size) {
+        return studentService.findAllStudentsPageByPageAndSortByScoreDesc(page,size);
+    }
 }

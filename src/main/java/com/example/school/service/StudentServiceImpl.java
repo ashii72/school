@@ -2,6 +2,9 @@ package com.example.school.service;
 
 import com.example.school.model.Student;
 import com.example.school.repository.StudentRepository;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -64,14 +67,15 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public List<Student> findAllStudentsSortByScoreDescAndNameAsc() {
         //Sort.by() jpa in repository
-        return null;
+        return studentRepository.findAll(Sort.by("score").descending().and(Sort.by("name").ascending()));
     }
 
     @Override
-    public List<Student> findAllStudentsPageByPageAndSortByScoreDesc(int page,int size) {
+    public List<Student> findAllStudentsPageByPageAndSortByScoreDesc(int page, int size) {
         // Pageable --- PageRequest in repository
         // page and size should be passed by user
-        return null;
+        Pageable studentPageWithScoreSortDesc = PageRequest.of(page, size, Sort.by("score").descending());
+        return studentRepository.findAll(studentPageWithScoreSortDesc).toList();
     }
 
 }

@@ -9,9 +9,12 @@ public interface StudentService {
 
     Optional<Student> findStudentByName(String name);
     Optional<Student> findStudentById(int id);
+
     Student saveStudent(Student student);
     Student deleteStudentById(int id);
+
     List<Student> findAllStudents();
+
     List<Student> findAllStudentsByOrderByNameAsc();
     List<Student> findAllStudentsByOrderByNameDesc();
     List<Student> findAllStudentsByOrderByScoreAsc();
@@ -19,4 +22,5 @@ public interface StudentService {
 
     List<Student> findAllStudentsSortByScoreDescAndNameAsc();
     List<Student> findAllStudentsPageByPageAndSortByScoreDesc(int page,int size);
+
 }
