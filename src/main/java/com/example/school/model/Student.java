@@ -2,6 +2,7 @@ package com.example.school.model;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "student")
@@ -15,6 +16,9 @@ public class Student {
     @JoinColumn(name = "teacher_id", referencedColumnName = "id")
     private Teacher teacher;
 
+    @OneToMany
+    @JoinColumn(name = "course_id",referencedColumnName = "id")
+    private Set<Course> courses;
 
     private String name;
     private double score;
