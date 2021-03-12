@@ -1,8 +1,8 @@
 package com.example.school.model;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "student")
@@ -16,17 +16,18 @@ public class Student {
     @JoinColumn(name = "teacher_id", referencedColumnName = "id")
     private Teacher teacher;
 
-    @OneToMany
-    @JoinColumn(name = "course_id",referencedColumnName = "id")
-    private Set<Course> courses;
+    @ManyToMany(targetEntity = Course.class,cascade = CascadeType.ALL)
+    private List<Course> courses;
 
     private String name;
     private double score;
     private String course;
 
-    public Student(int id, Teacher teacher, String name, double score, String course) {
+
+    public Student(int id, Teacher teacher, List<Course> courses, String name, double score, String course) {
         this.id = id;
         this.teacher = teacher;
+        this.courses = courses;
         this.name = name;
         this.score = score;
         this.course = course;

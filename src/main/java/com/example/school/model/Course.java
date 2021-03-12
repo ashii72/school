@@ -1,6 +1,7 @@
 package com.example.school.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "course")
@@ -13,24 +14,15 @@ public class Course {
     private String title;
     private int unit;
 
-    private Integer studentId;
+    @ManyToMany(targetEntity = Student.class, mappedBy = "courses", cascade = CascadeType.ALL)
+    private List<Student> students;
 
-    public Course(int id, String title, int unit, Integer studentId) {
+    public Course(int id, String title, int unit, List<Student> students) {
         this.id = id;
         this.title = title;
         this.unit = unit;
-        this.studentId = studentId;
+        this.students = students;
     }
-
-
-    public Integer getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
-    }
-
 
     public Course() {
     }
