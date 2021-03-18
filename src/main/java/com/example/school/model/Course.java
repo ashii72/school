@@ -1,5 +1,7 @@
 package com.example.school.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,6 +17,8 @@ public class Course {
     private int unit;
 
     @ManyToMany(targetEntity = Student.class, mappedBy = "courses", cascade = CascadeType.ALL)
+
+    @JsonIgnore
     private List<Student> students;
 
     public Course(int id, String title, int unit, List<Student> students) {
